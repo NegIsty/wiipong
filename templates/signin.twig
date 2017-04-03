@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <link rel='stylesheet' href='styles/signin.css'/>
+        <title>WiiPong - Signin</title>
+    </head>
+    <body>
+        <form method='POST'>
+            <input type='text' class='saisie' name='login' placeholder='Pseudo' autofocus/><br/>
+            <input type='password' class='saisie' name='pass' placeholder='Mot de passe'/><br/>
+            {% if err %}
+                <p class='erreur'>Erreur lors de la connexion</p>
+            {% endif %}
+            <input type='submit' class='bouton' value='Se connecter'>
+            <a href='/signup'>Si vous n'avez pas encore de compte, créez en un ici !</a>
+        </form>
+    </body>
+</html>

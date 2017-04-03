@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <link rel='stylesheet' href='styles/signup.css'/>
+        <title>WiiPong - Signup</title>
+    </head>
+    <body>
+        <form method='POST'>
+            <input type='text' class='saisie' name='login' placeholder='Pseudo' autofocus/><br/>
+            <input type='password' class='saisie' name='pass' placeholder='Mot de passe'/><br/>
+            <input type='password' class='saisie' name='confirm' placeholder='Confirmation du mot de passe'/><br/>
+            <input type='color' class='saisie couleur' name='couleur'/><br/>
+            {% if err %}
+                <p class='erreur'>Erreur lors de l'inscription</p>
+            {% endif %}
+            <input type='submit' class='bouton' value='S&apos;inscrire'>
+            <a href='/signin'>Si vous avez déjà un compte, connectez vous !</a>
+        </form>
+        <script>
+            document.querySelector('.couleur').setAttribute('value', '#'+("000000" + Math.random().toString(16).slice(2, 8).toUpperCase()).slice(-6));
+        </script>
+    </body>
+</html>
