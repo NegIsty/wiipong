@@ -66,7 +66,7 @@ app.all('/signin', function(req, res) {
         // Sinon, gestion de la connexion
         else {
             // Expression régulière pour le login
-            var login = new RegExp('^[A-Za-z0-9]+[A-Za-z0-9 ]*[A-Za-z0-9]*$','g');
+            var login = new RegExp('^[A-Za-z0-9][A-Za-z0-9 ]{1,14}[A-Za-z0-9]$','g');
             // Si le login répond à l'expression régulière, suite de la gestion de la connexion
             if (login.test(req.body.login))
                 db.query('SELECT login FROM users WHERE login = ? AND pass = ?', [req.body.login, md5('projet'+req.body.pass+'aws')], function(err, rows) {
@@ -103,7 +103,7 @@ app.all('/signup', function(req, res) {
         // Sinon, gestion de l'enregistrement
         else {
             // Expression régulière pour le login
-            var login = new RegExp('^[A-Za-z0-9]+[A-Za-z0-9 ]*[A-Za-z0-9]*$','g');
+            var login = new RegExp('^[A-Za-z0-9][A-Za-z0-9 ]{1,14}[A-Za-z0-9]$','g');
             // Expression régulière pour la couleur
             var couleur = new RegExp('^#[0-9a-fA-F]{6}$','g');
             // Si le login et la couleur répondent à leur expression régulière respective et que le mot de passe et la confirmation correspondent, enregistrement du nouvel utilisateur
