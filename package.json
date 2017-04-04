@@ -3,12 +3,12 @@
     "author": {
         "name": "Corentin Frery, Justin Malesic"
     },
-    "description": "Un projet du cours Applications Web et Sécurité",
+    "description": "Projet Node.js réalisé dans le cadre du cours Applications Web et Sécurité",
     "homepage": "https://wiipong.herokuapp.com/",
     "version": "0.1.0",
     "repository": {
         "type" : "git",
-        "url" : "https://git.heroku.com/wiipong.git"
+        "url" : "https://github.com/NegOrigin/wiipong.git"
     },
     "dependencies": {
         "express": "^4.14",
