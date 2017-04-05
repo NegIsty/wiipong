@@ -488,4 +488,4 @@ wsserver.on('connection', function(wsconn) {
 });
 
 // Lancement de l'application
-server.listen(process.env.PORT);
+server.listen(process.env.PORT || 8080);
