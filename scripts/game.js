@@ -11,7 +11,7 @@ var score1 = document.querySelector('#score1');
 var score2 = document.querySelector('#score2');
 var victoire = document.querySelector('#victoire');
 
-// Fonction de gestion des mouvements de souris
+// Fonction de gestion des mouvements de clavier
 function mouseMove(e, raquette, joueur) {
     if ((e.keyCode == 38 || e.keyCode == 90 || e.keyCode == 87) && raquette.offsetTop > 0)
         raquette.style.marginTop = raquette.offsetTop-25+'px';
@@ -282,4 +282,11 @@ ws.addEventListener('open', function(e) {
             action: 'askdelete'
         }));
     });
+    
+    // Non Heroku, je ne suis pas absent
+    setInterval(function() {
+        ws.send(JSON.stringify({
+            action: 'coucou'
+        }));
+    }, 30000);
 });
