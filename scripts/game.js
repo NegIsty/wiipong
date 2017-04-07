@@ -12,7 +12,7 @@ var score2 = document.querySelector('#score2');
 var victoire = document.querySelector('#victoire');
 
 // Fonction de gestion des mouvements de clavier
-function mouseMove(e, raquette, joueur) {
+function keyboardMove(e, raquette, joueur) {
     if ((e.keyCode == 38 || e.keyCode == 90 || e.keyCode == 87) && raquette.offsetTop > 0)
         raquette.style.marginTop = raquette.offsetTop-25+'px';
     else if ((e.keyCode == 40 || e.keyCode == 83) && raquette.offsetTop < 500)
@@ -79,7 +79,7 @@ ws.addEventListener('open', function(e) {
                 else
                     image.setAttribute('src', 'images/duelactif.png');
                 image.setAttribute('alt', 'Défier');
-                image.setAttribute('id', 'imgduel_'+i);
+                image.setAttribute('id', 'imgduel_'+i.replace(" ", "_"));
                 duel.appendChild(image);
                 colonne.appendChild(duel);
                 ligne.appendChild(colonne);
@@ -131,7 +131,7 @@ ws.addEventListener('open', function(e) {
         else if (content.action == 'advduel') {
             // Change l'image de duel
             if (content.adversaire)
-                document.querySelector('#imgduel_'+content.adversaire).setAttribute('src', 'images/duelactif.png');
+                document.querySelector('#imgduel_'+content.adversaire.replace(" ", "_")).setAttribute('src', 'images/duelactif.png');
             else
                 document.querySelector('[src="images/duelactif.png"]').setAttribute('src', 'images/duel.png');
         }
@@ -188,7 +188,7 @@ ws.addEventListener('open', function(e) {
                 
                 // Gestion des déplacements sur PC
                 window.addEventListener("keydown",  function(e) {
-                    mouseMove(e, raquette2, 2);
+                    keyboardMove(e, raquette2, 2);
                 });
                 
                 // Gestion des déplacements sur téléphone et tablette
@@ -205,7 +205,7 @@ ws.addEventListener('open', function(e) {
                 
                 // Gestion des déplacements sur PC
                 window.addEventListener("keydown",  function(e) {
-                    mouseMove(e, raquette1, 1);
+                    keyboardMove(e, raquette1, 1);
                 });
                 
                 // Gestion des déplacements sur téléphone et tablette
